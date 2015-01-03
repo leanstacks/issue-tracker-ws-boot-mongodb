@@ -58,10 +58,10 @@ public class IssueServiceBean implements IssueService {
             issue.setPriority(IssuePriority.MEDIUM);
         }
 
-        Issue i = issueRepository.save(issue);
+        Issue persistedIssue = issueRepository.save(issue);
 
         logger.info("< create");
-        return i;
+        return persistedIssue;
     }
 
     @Override
@@ -70,10 +70,10 @@ public class IssueServiceBean implements IssueService {
 
         counterService.increment("services.issueservice.update.invoked");
 
-        Issue i = issueRepository.save(issue);
+        Issue updatedIssue = issueRepository.save(issue);
 
         logger.info("< update");
-        return i;
+        return updatedIssue;
     }
 
     @Override
